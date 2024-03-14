@@ -20,4 +20,4 @@ About Me
 My name is Cédric, and I love to create applications that are really useful and pleasant to use!
 
 [1]: https://#
-[2]: https://github.com/cedric816/symfacture/tree/master/documentation/diagramme-classes-uml.drawio.svg
+[2]: https://github.com/cedric816/symfacture/tree/master/documentation/uml-class-diagram.jpg
