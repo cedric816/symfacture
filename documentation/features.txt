@@ -11,4 +11,4 @@ FEATURES
 FRENCH TAX STANDARDS RESPECT
 
 - quote and invoice: numbering followed and not modifiable
-- quote and invoice not modifiable after validation
+- quote and invoice informations not modifiable after validation
