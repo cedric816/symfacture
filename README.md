@@ -13,6 +13,7 @@ Installation
 
 Documentation
 -------------
+* [Features][3]
 * [UML class diagram][2]
 
 About Me
@@ -21,3 +22,4 @@ My name is Cédric, and I love to create applications that are really useful and
 
 [1]: https://#
 [2]: https://github.com/cedric816/symfacture/tree/master/documentation/uml-class-diagram.jpg
+[3]: https://github.com/cedric816/symfacture/tree/master/documentation/features.txt

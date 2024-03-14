@@ -1,0 +1,14 @@
+FEATURES
+
+- user can create an account and access secure and private space
+- settings: user can choose numbering system, quote and invoice style (custom logo and colors), and provide contact details
+- catalog: addition, modification of a product or service in the catalog
+- customer: addition, modification of a customer in the customer file
+- quote: creation and sending by email to the customer, picking product/service in the catalog
+- invoice: creation from scratch or from an existing quote
+- quote and invoice are visible in PDF
+
+FRENCH TAX STANDARDS RESPECT
+
+- quote and invoice: numbering followed and not modifiable
+- quote and invoice not modifiable after validation
