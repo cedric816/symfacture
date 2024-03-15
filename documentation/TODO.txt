@@ -1,0 +1,3 @@
+- create homepage with lorem ipsum
+- install bootstrap css with assetmapper (bootstrap js via cdn)
+

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfacture|Accueil{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img src={{ asset('images/invoice.png') }} alt="facture" class="img-fluid">
+        </div>
+        <div class="col-md-8">
+            <h1>Symfacture</h1>
+            <h2 class="display-1 text-primary">Créez vos devis et factures</h2>
+            <p class="text-primary">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt-5 p-5 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <h2 class="mb-5">Titre de section</h2>
+            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.</p>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <h2 class="text-center mb-5">Titre de section</h2>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
