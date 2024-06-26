@@ -1,3 +1,8 @@
+OK- installer phpstan
+(et lancer une première analyse: vendor/bin/phpstan analyse src)
+OK- installer phpcsfixer dans un dossier tools/php-cs-fixer 
+( et lancer une première analyse: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src)
+
 OK- create homepage with lorem ipsum
 OK- install bootstrap css with assetmapper (bootstrap js via cdn)
 
