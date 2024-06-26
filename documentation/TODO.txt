@@ -1,3 +1,10 @@
-- create homepage with lorem ipsum
-- install bootstrap css with assetmapper (bootstrap js via cdn)
+OK- create homepage with lorem ipsum
+OK- install bootstrap css with assetmapper (bootstrap js via cdn)
 
+OK- créer l'entité mère User
+- les entités filles Customer et Professional 
+(inheritance mapping, pour n'avoir qu'une seule table en BDD)
+(les entités sreont dans un dossier User)
+- créer des fixtures pour chacune de ces 3 entités
+
+- créer formulaire de connexion
