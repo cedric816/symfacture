@@ -6,6 +6,9 @@ OK- installer phpcsfixer dans un dossier tools/php-cs-fixer
 OK- create homepage with lorem ipsum
 OK- install bootstrap css with assetmapper (bootstrap js via cdn)
 
+OK - créer fichier .env.local et définir la connexion BDD
+OK - créer la BDD
+
 OK- créer l'entité mère User
 - les entités filles Customer et Professional 
 (inheritance mapping, pour n'avoir qu'une seule table en BDD)
