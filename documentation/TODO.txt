@@ -15,4 +15,6 @@ OK - les entités filles Customer et Professional
 (les entités sreont dans un dossier User)
 OK - créer des fixtures pour chacune de ces 2 entités
 
-- créer formulaire de connexion
+OK - créer formulaire de connexion
+
+- créer toutes les autres entités
