@@ -21,12 +21,40 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Page1</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Page2</a>
-                  </li>
+
+                  {# menu for authenticated user#}
+                  {% if app.user %}
+
+                    {% if 'ROLE_CUSTOMER' in app.user.getroles() %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Page1 - client</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Page2 - client</a>
+                    </li>
+                    {% endif %}
+                    
+                    {% if 'ROLE_PROFESSIONAL' in app.user.getroles() %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Page1 - pro</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Page2 - pro</a>
+                    </li>
+                    {% endif %}
+
+                  {# menu for anonymous user#}
+                  {% else %}
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Page1</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Page2</a>
+                    </li>
+                  {% endif %}
+                    
+                  
                 </ul>
                 <div>
                   {% if app.user %}
