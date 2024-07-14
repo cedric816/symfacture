@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
 #[InheritanceType('SINGLE_TABLE')]
 #[DiscriminatorColumn(name: 'type', type: 'string')]
 #[DiscriminatorMap(['customer' => Customer::class, 'professional' => Professional::class])]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+abstract class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

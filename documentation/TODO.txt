@@ -17,4 +17,8 @@ OK - créer des fixtures pour chacune de ces 2 entités
 
 OK - créer formulaire de connexion
 
-- créer toutes les autres entités
+OK - créer toutes les autres entités
+
+- créer tests unitaires sur les entités
+
+- refacto les entités avec des Traits
