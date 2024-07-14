@@ -20,3 +20,5 @@ OK - créer formulaire de connexion
 OK - créer toutes les autres entités
 
 - créer tests unitaires sur les entités
+
+- refacto les entités avec des Traits
