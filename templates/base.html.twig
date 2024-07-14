@@ -29,7 +29,12 @@
                   </li>
                 </ul>
                 <div>
-                    <a href="#" class="btn btn-success">Connexion</a>
+                  {% if app.user %}
+                  <a href={{ path('app_logout') }} class="btn btn-danger">Déconnexion</a>
+                  {% else %}
+                  <a href={{ path('app_login') }} class="btn btn-success">Connexion</a>
+                  {% endif %}
+                  
                 </div>
               </div>
             </div>
