@@ -92,7 +92,8 @@ class AppFixtures extends Fixture
             ->setSiret('362 521 879 00034')
             ->setSocialAddress($companySocialAddress)
             ->setBillingAddress($companyBillingAddress)
-            ->setDeliveryAddress($companyDeliveryAddress);
+            ->setDeliveryAddress($companyDeliveryAddress)
+            ->addCustomer($customer);
         $manager->persist($company1);
 
         $catalog = new Catalog();
