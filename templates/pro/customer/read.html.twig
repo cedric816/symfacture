@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace pro | Fiche client{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="sidebar bg-primary col-md-3 p-5">
+            <a href="#" class="btn btn-light">Créer un client</a>
+            <form action="" class="mt-5">
+                <input type="text">
+                <input type="button" value="Rechercher" class="btn btn-secondary mt-3">
+            </form>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-7 mt-5">
+            <div class="mb-3">
+                <a href={{ path('professional_customer_index') }}>Retour liste clients</a>
+            </div>
+            <div class="card">
+                <div class="card-header bg-success">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            {{ customer.email }} - {{ (customer.phone) ? customer.phone : 'xx xx xx xx xx' }}
+                        </div>
+                        <div>
+                            <a href="#" class="text-white">Modifier</a>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title mt-3">{{ customer.firstName }} {{ customer.lastName|upper}}</h4>
+                </div>
+                  <ul class="list-group list-group-flush mt-3">
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6>Adresse de livraison</h6>
+                                <p>{{ (customer.deliveryAddress) ? customer.deliveryAddress : 'xxxxxxxxxx' }}</p>
+                            </div>
+                            <div>
+                                <a href="#" class="text-secondary">Modifier</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6>Adresse de facturation</h6>
+                                <p>{{ (customer.billingAddress) ? customer.billingAddress : 'xxxxxxxxxx' }}</p>
+                            </div>
+                            <div>
+                                <a href="#" class="text-secondary">Modifier</a>
+                            </div>
+                        </div>
+                    </li>
+                  </ul>
+                  <div class="d-flex p-5">
+                    <a href="#" class="btn btn-success m-2">DEVIS</a>
+                    <a href="#" class="btn btn-success m-2">FACTURES</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+{% endblock %}

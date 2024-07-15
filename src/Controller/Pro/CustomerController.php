@@ -2,6 +2,7 @@
 
 namespace App\Controller\Pro;
 
+use App\Entity\User\Customer;
 use App\Entity\User\Professional;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,6 +29,14 @@ class CustomerController extends AbstractController
 
         return $this->render('pro/customer/index.html.twig', [
             'pagination' => $pagination
+        ]);
+    }
+
+    #[Route('/fiche/{id}', name: 'professionnal_customer_read')]
+    public function read(Customer $customer): Response
+    {
+        return $this->render('pro/customer/read.html.twig', [
+            'customer' => $customer
         ]);
     }
 }
