@@ -3,5 +3,46 @@
 {% block title %}Espace pro | Mes clients{% endblock %}
 
 {% block body %}
-espace pro - liste de mes clients
+<div class="container mt-5">
+    <div class="row">
+        <div class="sidebar col-md-3 p-5">
+            <a href="#" class="btn btn-primary">Créer un client</a>
+            <form action="" class="mt-5">
+                <input type="text">
+                <input type="button" value="Rechercher" class="btn btn-secondary mt-3">
+            </form>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <h4>Liste de mes clients</h4>
+            <table class="table table-striped mt-5">
+                <thead class="thead-primary">
+                    <tr>
+                        <th scope="col">NOM</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for customer in pagination %}
+                    <tr>
+                        <td>{{ customer.firstName }}</td>
+                        <td>{{ customer.lastName }}</td>
+                        <td>{{ customer.email }}</td>
+                        <td>
+                            <a href="#" class="btn btn-success">Voir la fiche</a>
+                            <a href="#" class="btn btn-warning">Modifier</a>
+                            <a href="#" class="btn btn-light">Supprimer</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
