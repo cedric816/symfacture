@@ -4,6 +4,7 @@ namespace App\Entity\Company;
 
 use App\Entity\Address;
 use App\Entity\Company\Catalog\Catalog;
+use App\Entity\User\Customer;
 use App\Entity\User\Professional;
 use App\Repository\Company\CompanyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -73,9 +74,16 @@ class Company
     #[ORM\JoinColumn(nullable: false)]
     private ?Address $deliveryAddress = null;
 
+    /**
+     * @var Collection <int, Customer>
+     */
+    #[ORM\ManyToMany(targetEntity: Customer::class, mappedBy: 'company')]
+    private Collection $customers;
+
     public function __construct()
     {
         $this->catalogs = new ArrayCollection();
+        $this->customers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -253,6 +261,33 @@ class Company
     public function setDeliveryAddress(Address $deliveryAddress): static
     {
         $this->deliveryAddress = $deliveryAddress;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Customer>
+     */
+    public function getCustomers(): Collection
+    {
+        return $this->customers;
+    }
+
+    public function addCustomer(Customer $customer): static
+    {
+        if (!$this->customers->contains($customer)) {
+            $this->customers->add($customer);
+            $customer->addCompany($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCustomer(Customer $customer): static
+    {
+        if ($this->customers->removeElement($customer)) {
+            $customer->removeCompany($this);
+        }
 
         return $this;
     }

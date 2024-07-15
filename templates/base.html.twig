@@ -36,10 +36,16 @@
                     
                     {% if 'ROLE_PROFESSIONAL' in app.user.getroles() %}
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Page1 - pro</a>
+                      <a class="nav-link" href={{ path('professional_index')}}>Tableau de bord</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Page2 - pro</a>
+                      <a class="nav-link" href={{ path('professional_customer_index')}}>Clients</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href={{ path('professional_quote_index')}}>Devis</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href={{ path('professional_invoice_index')}}>Factures</a>
                     </li>
                     {% endif %}
 
@@ -58,6 +64,7 @@
                 </ul>
                 <div>
                   {% if app.user %}
+                  <a href={{ path('account_index') }} class="btn btn-light">Mon compte</a>
                   <a href={{ path('app_logout') }} class="btn btn-danger">Déconnexion</a>
                   {% else %}
                   <a href={{ path('app_login') }} class="btn btn-success">Connexion</a>

@@ -26,7 +26,7 @@ OK - créer toutes les autres entités
 OK - créer les pages d'atterrisage suite à la connexion: /client et /pro
 
 - espace pro: 
-  -- créer le menu et les pages: factures, devis, clients, profil
+  OK -- créer le menu et les pages: factures, devis, clients, profil
   -- créer CRUD client
   -- créer CRUD devis
   -- créer CRUD facture
