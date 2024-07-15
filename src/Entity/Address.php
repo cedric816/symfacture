@@ -26,6 +26,11 @@ class Address
     #[ORM\Column(length: 255)]
     private ?string $city = null;
 
+    public function __toString()
+    {
+        return $this->getNumber().' '.$this->getStreet().' - '.$this->getPostalCode().' '.$this->getCity();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

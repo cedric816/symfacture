@@ -3,17 +3,22 @@
 {% block title %}Espace pro | Mes clients{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
+<div class="container-fluid">
     <div class="row">
-        <div class="sidebar col-md-3 p-5">
-            <a href="#" class="btn btn-primary">Créer un client</a>
+        <div class="sidebar bg-primary col-md-3 p-5">
+            <a href="#" class="btn btn-light">Créer un client</a>
             <form action="" class="mt-5">
                 <input type="text">
                 <input type="button" value="Rechercher" class="btn btn-secondary mt-3">
             </form>
+            <div class="card mt-5 p-4">
+                <p>Ici vous pouvez gérer tous vos clients.</p>
+                <p>Consulter, créer, modifier ou supprimer leur  fiche, et accéder aux devis et factures qui leur sont attribués.</p>
+                <a href="#">Guide d'utilisation</a>
+            </div>
         </div>
         <div class="col-md-1"></div>
-        <div class="col-md-8">
+        <div class="col-md-8 mt-5">
             <h4>Liste de mes clients</h4>
             <table class="table table-striped mt-5">
                 <thead class="thead-primary">
@@ -31,7 +36,7 @@
                         <td>{{ customer.lastName }}</td>
                         <td>{{ customer.email }}</td>
                         <td>
-                            <a href="#" class="btn btn-success">Voir la fiche</a>
+                            <a href={{ path('professionnal_customer_read', {'id': customer.id}) }} class="btn btn-success">Voir la fiche</a>
                             <a href="#" class="btn btn-warning">Modifier</a>
                             <a href="#" class="btn btn-light">Supprimer</a>
                         </td>
