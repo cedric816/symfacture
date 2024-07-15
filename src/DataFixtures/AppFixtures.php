@@ -23,33 +23,39 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $customerDeliveryAdress = new Address();
-        $customerDeliveryAdress
-            ->setNumber('1B')
-            ->setStreet('rue Livraison')
-            ->setPostalCode(30000)
-            ->setCity('Nîmes');
-        $manager->persist($customerDeliveryAdress);
+        $customers = [];
 
-        $customerBillingAddress = new Address();
-        $customerBillingAddress
-            ->setNumber('1')
-            ->setStreet('rue Facturation')
-            ->setPostalCode(30000)
-            ->setCity('Nîmes');
-        $manager->persist($customerBillingAddress);
+        for ($i = 1; $i <= 50; $i++) {
+            $customerDeliveryAdress = new Address();
+            $customerDeliveryAdress
+                ->setNumber("$i")
+                ->setStreet('rue Livraison'.$i)
+                ->setPostalCode(rand(10000, 90000))
+                ->setCity('Ville'.$i);
+            $manager->persist($customerDeliveryAdress);
 
-        $customer = new Customer();
-        $customer
-            ->setRoles(['ROLE_CUSTOMER'])
-            ->setEmail('client@mail.fr')
-            ->setPassword($this->passwordHasher->hashPassword($customer, 'pass'))
-            ->setFirstName('Ced')
-            ->setLastName('Leclient')
-            ->setPhone('0605040302')
-            ->setDeliveryAddress($customerDeliveryAdress)
-            ->setBillingAddress($customerBillingAddress);
-        $manager->persist($customer);
+            $customerBillingAddress = new Address();
+            $customerBillingAddress
+                ->setNumber("$i")
+                ->setStreet('rue Facturation'.$i)
+                ->setPostalCode(rand(10000, 90000))
+                ->setCity('Ville'.$i);
+            $manager->persist($customerBillingAddress);
+
+            $customer = new Customer();
+            $customer
+                ->setRoles(['ROLE_CUSTOMER'])
+                ->setEmail('client'.$i.'@mail.fr')
+                ->setPassword($this->passwordHasher->hashPassword($customer, 'pass'))
+                ->setFirstName('Prénom'.$i)
+                ->setLastName('Nom'.$i)
+                ->setPhone('0605040302')
+                ->setDeliveryAddress($customerDeliveryAdress)
+                ->setBillingAddress($customerBillingAddress);
+            $manager->persist($customer);
+
+            $customers[] = $customer;
+        }
 
         $professional = new Professional();
         $professional
@@ -58,6 +64,9 @@ class AppFixtures extends Fixture
             ->setPassword($this->passwordHasher->hashPassword($professional, 'pass'))
             ->setFirstName('Ced')
             ->setLastName('Lepro');
+        for ($i = 0; $i <= 30; $i++) {
+            $professional->addCustomer($customers[$i]);
+        }
         $manager->persist($professional);
 
         $companySocialAddress = new Address();

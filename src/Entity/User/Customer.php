@@ -24,9 +24,16 @@ class Customer extends User
     #[ORM\ManyToMany(targetEntity: Company::class, inversedBy: 'customers')]
     private Collection $companies;
 
+    /**
+     * @var Collection <int, Professional>
+     */
+    #[ORM\ManyToMany(targetEntity: Professional::class, mappedBy: 'customers')]
+    private Collection $professionals;
+
     public function __construct()
     {
         $this->companies = new ArrayCollection();
+        $this->professionals = new ArrayCollection();
     }
 
     public function getDeliveryAddress(): ?Address
@@ -73,6 +80,33 @@ class Customer extends User
     public function removeCompany(Company $company): static
     {
         $this->companies->removeElement($company);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Professional>
+     */
+    public function getProfessionals(): Collection
+    {
+        return $this->professionals;
+    }
+
+    public function addProfessional(Professional $professional): static
+    {
+        if (!$this->professionals->contains($professional)) {
+            $this->professionals->add($professional);
+            $professional->addCustomer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProfessional(Professional $professional): static
+    {
+        if ($this->professionals->removeElement($professional)) {
+            $professional->removeCustomer($this);
+        }
 
         return $this;
     }

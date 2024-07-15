@@ -17,9 +17,16 @@ class Professional extends User
     #[ORM\OneToMany(targetEntity: Company::class, mappedBy: 'professional', orphanRemoval: true)]
     private Collection $companies;
 
+    /**
+     * @var Collection <int, Customer>
+     */
+    #[ORM\ManyToMany(targetEntity: Customer::class, inversedBy: 'professionals')]
+    private Collection $customers;
+
     public function __construct()
     {
         $this->companies = new ArrayCollection();
+        $this->customers = new ArrayCollection();
     }
 
     /**
@@ -48,6 +55,30 @@ class Professional extends User
                 $company->setProfessional(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Customer>
+     */
+    public function getCustomers(): Collection
+    {
+        return $this->customers;
+    }
+
+    public function addCustomer(Customer $customer): static
+    {
+        if (!$this->customers->contains($customer)) {
+            $this->customers->add($customer);
+        }
+
+        return $this;
+    }
+
+    public function removeCustomer(Customer $customer): static
+    {
+        $this->customers->removeElement($customer);
 
         return $this;
     }
