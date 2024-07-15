@@ -19,7 +19,7 @@ class CustomerController extends AbstractController
     public function index(#[CurrentUser] Professional $professional, PaginatorInterface $paginator, Request $request): Response
     {
         $customers = $professional->getCustomers();
-        
+
         $pagination = $paginator->paginate(
             $customers,
             $request->query->getInt('page', 1),

@@ -25,10 +25,10 @@ class AppFixtures extends Fixture
     {
         $customers = [];
 
-        for ($i=1; $i<=50; $i++){
+        for ($i = 1; $i <= 50; $i++) {
             $customerDeliveryAdress = new Address();
             $customerDeliveryAdress
-                ->setNumber($i)
+                ->setNumber("$i")
                 ->setStreet('rue Livraison'.$i)
                 ->setPostalCode(rand(10000, 90000))
                 ->setCity('Ville'.$i);
@@ -36,7 +36,7 @@ class AppFixtures extends Fixture
 
             $customerBillingAddress = new Address();
             $customerBillingAddress
-                ->setNumber($i)
+                ->setNumber("$i")
                 ->setStreet('rue Facturation'.$i)
                 ->setPostalCode(rand(10000, 90000))
                 ->setCity('Ville'.$i);
@@ -56,7 +56,7 @@ class AppFixtures extends Fixture
 
             $customers[] = $customer;
         }
-        
+
         $professional = new Professional();
         $professional
             ->setRoles(['ROLE_PROFESSIONAL'])
@@ -64,7 +64,7 @@ class AppFixtures extends Fixture
             ->setPassword($this->passwordHasher->hashPassword($professional, 'pass'))
             ->setFirstName('Ced')
             ->setLastName('Lepro');
-        for ($i=0; $i<=30; $i++) {
+        for ($i = 0; $i <= 30; $i++) {
             $professional->addCustomer($customers[$i]);
         }
         $manager->persist($professional);
