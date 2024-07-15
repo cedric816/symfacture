@@ -33,6 +33,7 @@ class CustomerController extends AbstractController
     }
 
     #[Route('/fiche/{id}', name: 'professionnal_customer_read')]
+    #[IsGranted('view', 'customer')]
     public function read(Customer $customer): Response
     {
         return $this->render('pro/customer/read.html.twig', [

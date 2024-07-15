@@ -29,6 +29,7 @@ OK - créer les pages d'atterrisage suite à la connexion: /client et /pro
   OK -- créer le menu et les pages: factures, devis, clients, profil
   -- créer CRUD client
     OK --- read
+      --- securité: un pro ne doit pouvoir accéder qu'à ses clients et pas à ceux des autres
     --- delete
     --- update
   -- créer CRUD devis

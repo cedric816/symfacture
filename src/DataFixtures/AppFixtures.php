@@ -69,6 +69,15 @@ class AppFixtures extends Fixture
         }
         $manager->persist($professional);
 
+        $professional2 = new Professional();
+        $professional2
+            ->setRoles(['ROLE_PROFESSIONAL'])
+            ->setEmail('pro2@mail.fr')
+            ->setPassword($this->passwordHasher->hashPassword($professional, 'pass'))
+            ->setFirstName('Ced2')
+            ->setLastName('Lepro2');
+        $manager->persist($professional2);
+
         $companySocialAddress = new Address();
         $companySocialAddress
             ->setNumber('1')
